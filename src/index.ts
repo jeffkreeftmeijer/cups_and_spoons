@@ -9,35 +9,15 @@ export const Cups = (milliliters: number): string => {
       return quotient.toString();
     }
   } else if (remainder < 0.29) {
-    if (quotient === 0) {
-      return "¼";
-    } else {
-      return quotient.toString() + "¼";
-    }
+    return toStringWithoutZero(quotient) + "¼";
   } else if (remainder < 0.42) {
-    if (quotient === 0) {
-      return "⅓";
-    } else {
-      return quotient.toString() + "⅓";
-    }
+    return toStringWithoutZero(quotient) + "⅓";
   } else if (remainder < 0.59) {
-    if (quotient === 0) {
-      return "½";
-    } else {
-      return quotient.toString() + "½";
-    }
+    return toStringWithoutZero(quotient) + "½";
   } else if (remainder < 0.7) {
-    if (quotient === 0) {
-      return "⅔";
-    } else {
-      return quotient.toString() + "⅔";
-    }
+    return toStringWithoutZero(quotient) + "⅔";
   } else if (remainder < 0.86) {
-    if (quotient === 0) {
-      return "¾";
-    } else {
-      return quotient.toString() + "¾";
-    }
+    return toStringWithoutZero(quotient) + "¾";
   } else {
     return (quotient + 1).toString();
   }
@@ -58,25 +38,21 @@ export const Teaspoons = (milliliters: number): string => {
       return quotient.toString();
     }
   } else if (remainder < 0.375) {
-    if (quotient === 0) {
-      return "¼";
-    } else {
-      return quotient.toString() + "¼";
-    }
+    return toStringWithoutZero(quotient) + "¼";
   } else if (remainder < 0.625) {
-    if (quotient === 0) {
-      return "½";
-    } else {
-      return quotient.toString() + "½";
-    }
+    return toStringWithoutZero(quotient) + "½";
   } else if (remainder < 0.875) {
-    if (quotient === 0) {
-      return "¾";
-    } else {
-      return quotient.toString() + "¾";
-    }
+    return toStringWithoutZero(quotient) + "¾";
   } else {
     return (quotient + 1).toString();
+  }
+};
+
+const toStringWithoutZero = (quotient: number): string => {
+  if (quotient === 0) {
+    return "";
+  } else {
+    return quotient.toString();
   }
 };
 
