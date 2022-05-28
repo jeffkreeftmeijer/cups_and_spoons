@@ -5,6 +5,14 @@ export const Cups = (milliliters: number): string => {
 
   if (remainder === 0.5) {
     fraction = "½";
+  } else if (remainder === 0.34) {
+    fraction = "⅓";
+  } else if (remainder === 0.24) {
+    fraction = "¼";
+  } else if (remainder === 0.68) {
+    fraction = "⅔";
+  } else if (remainder === 0.72) {
+    fraction = "¾";
   }
 
   return quotientToString(quotient) + fraction;
