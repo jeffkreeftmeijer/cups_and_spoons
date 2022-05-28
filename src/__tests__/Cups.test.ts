@@ -1,6 +1,13 @@
 import { Cups } from "../index";
 
 describe("Cups", () => {
-  test("2", () => expect(Cups(500)).toBe("2"));
-  test("1", () => expect(Cups(250)).toBe("1"));
+  const tests: [number, string][] = [
+    [500, "2"],
+    [250, "1"],
+  ];
+
+  tests.forEach(([input, expected]) => {
+    test(`${input} milliliters is ${expected} cup(s)`, () =>
+      expect(Cups(input)).toBe(expected));
+  });
 });
