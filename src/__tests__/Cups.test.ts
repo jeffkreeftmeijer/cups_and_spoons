@@ -5,6 +5,7 @@ describe("Cups", () => {
     [500, "2"],
     [250, "1"],
     [375, "1½"],
+    [125, "½"],
   ];
 
   tests.forEach(([input, expected]) => {

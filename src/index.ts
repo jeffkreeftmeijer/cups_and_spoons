@@ -7,9 +7,17 @@ export const Cups = (milliliters: number): string => {
     fraction = "½";
   }
 
-  return quotient.toString() + fraction;
+  return quotientToString(quotient) + fraction;
 };
 
 const divmod = (x: number, y: number): [number, number] => {
   return [Math.floor(x / y), x % y];
+};
+
+const quotientToString = (quotient: number): string => {
+  if (quotient == 0) {
+    return "";
+  } else {
+    return quotient.toString();
+  }
 };
