@@ -12,6 +12,10 @@ export const Cups = (milliliters: number): string => {
   }
 };
 
+export const Tablespoons = (milliliters: number): string => {
+  return Math.round(milliliters / 15).toString();
+};
+
 const divmod = (x: number, y: number): [number, number] => {
   return [Math.floor(x / y), x % y];
 };
