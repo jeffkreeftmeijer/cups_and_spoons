@@ -1,21 +1,7 @@
 export const Cups = (milliliters: number): string => {
   const cups = milliliters / 250;
   const [quotient, remainder] = divmod(cups, 1);
-  let fraction = "";
-
-  if (remainder === 0.5) {
-    fraction = "½";
-  } else if (remainder === 0.34) {
-    fraction = "⅓";
-  } else if (remainder === 0.24) {
-    fraction = "¼";
-  } else if (remainder === 0.68) {
-    fraction = "⅔";
-  } else if (remainder === 0.72) {
-    fraction = "¾";
-  }
-
-  return quotientToString(quotient) + fraction;
+  return quotientToString(quotient) + remainderToFraction(remainder);
 };
 
 const divmod = (x: number, y: number): [number, number] => {
@@ -27,5 +13,21 @@ const quotientToString = (quotient: number): string => {
     return "";
   } else {
     return quotient.toString();
+  }
+};
+
+const remainderToFraction = (remainder: number): string => {
+  if (remainder === 0.5) {
+    return "½";
+  } else if (remainder === 0.34) {
+    return "⅓";
+  } else if (remainder === 0.24) {
+    return "¼";
+  } else if (remainder === 0.68) {
+    return "⅔";
+  } else if (remainder === 0.72) {
+    return "¾";
+  } else {
+    return "";
   }
 };
