@@ -2,13 +2,44 @@ export const Cups = (milliliters: number): string => {
   const cups = milliliters / 250;
   const [quotient, remainder] = divmod(cups, 1);
 
-  const wholes = quotientToString(quotient);
-  const fraction = remainderToFraction(remainder);
-
-  if (wholes === "" && fraction === "") {
-    return "0";
+  if (remainder < 0.12) {
+    if (quotient === 0) {
+      return "0";
+    } else {
+      return quotient.toString();
+    }
+  } else if (remainder < 0.29) {
+    if (quotient === 0) {
+      return "¼";
+    } else {
+      return quotient.toString() + "¼";
+    }
+  } else if (remainder < 0.42) {
+    if (quotient === 0) {
+      return "⅓";
+    } else {
+      return quotient.toString() + "⅓";
+    }
+  } else if (remainder < 0.59) {
+    if (quotient === 0) {
+      return "½";
+    } else {
+      return quotient.toString() + "½";
+    }
+  } else if (remainder < 0.7) {
+    if (quotient === 0) {
+      return "⅔";
+    } else {
+      return quotient.toString() + "⅔";
+    }
+  } else if (remainder < 0.86) {
+    if (quotient === 0) {
+      return "¾";
+    } else {
+      return quotient.toString() + "¾";
+    }
   } else {
-    return wholes + fraction;
+    return (quotient + 1).toString();
   }
 };
 
@@ -20,54 +51,35 @@ export const Teaspoons = (milliliters: number): string => {
   const teaspoons = milliliters / 5;
   const [quotient, remainder] = divmod(teaspoons, 1);
 
-  const wholes = quotientToString(quotient);
-  let fraction = "";
-
   if (remainder < 0.125) {
-    fraction = "";
+    if (quotient === 0) {
+      return "0";
+    } else {
+      return quotient.toString();
+    }
   } else if (remainder < 0.375) {
-    fraction = "¼";
+    if (quotient === 0) {
+      return "¼";
+    } else {
+      return quotient.toString() + "¼";
+    }
   } else if (remainder < 0.625) {
-    fraction = "½";
+    if (quotient === 0) {
+      return "½";
+    } else {
+      return quotient.toString() + "½";
+    }
   } else if (remainder < 0.875) {
-    fraction = "¾";
+    if (quotient === 0) {
+      return "¾";
+    } else {
+      return quotient.toString() + "¾";
+    }
   } else {
-    fraction = "1";
-  }
-
-  if (wholes === "" && fraction === "") {
-    return "0";
-  } else {
-    return wholes + fraction;
+    return (quotient + 1).toString();
   }
 };
 
 const divmod = (x: number, y: number): [number, number] => {
   return [Math.floor(x / y), x % y];
-};
-
-const quotientToString = (quotient: number): string => {
-  if (quotient == 0) {
-    return "";
-  } else {
-    return quotient.toString();
-  }
-};
-
-const remainderToFraction = (remainder: number): string => {
-  if (remainder < 0.12) {
-    return "";
-  } else if (remainder < 0.29) {
-    return "¼";
-  } else if (remainder < 0.42) {
-    return "⅓";
-  } else if (remainder < 0.59) {
-    return "½";
-  } else if (remainder < 0.7) {
-    return "⅔";
-  } else if (remainder < 0.86) {
-    return "¾";
-  } else {
-    return "1";
-  }
 };

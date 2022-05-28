@@ -31,6 +31,7 @@ describe("Cups", () => {
     [175, "¾"],
     [214, "¾"],
     [215, "1"],
+    [465, "2"],
   ];
 
   roundingTests.forEach(([input, expected]) => {
