@@ -16,6 +16,32 @@ export const Tablespoons = (milliliters: number): string => {
   return Math.round(milliliters / 15).toString();
 };
 
+export const Teaspoons = (milliliters: number): string => {
+  const teaspoons = milliliters / 5;
+  const [quotient, remainder] = divmod(teaspoons, 1);
+
+  const wholes = quotientToString(quotient);
+  let fraction = "";
+
+  if (remainder < 0.125) {
+    fraction = "";
+  } else if (remainder < 0.375) {
+    fraction = "¼";
+  } else if (remainder < 0.625) {
+    fraction = "½";
+  } else if (remainder < 0.875) {
+    fraction = "¾";
+  } else {
+    fraction = "1";
+  }
+
+  if (wholes === "" && fraction === "") {
+    return "0";
+  } else {
+    return wholes + fraction;
+  }
+};
+
 const divmod = (x: number, y: number): [number, number] => {
   return [Math.floor(x / y), x % y];
 };
