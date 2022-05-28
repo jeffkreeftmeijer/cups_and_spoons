@@ -25,17 +25,19 @@ const quotientToString = (quotient: number): string => {
 };
 
 const remainderToFraction = (remainder: number): string => {
-  if (remainder === 0.5) {
-    return "½";
-  } else if (remainder === 0.34) {
-    return "⅓";
-  } else if (remainder === 0.24) {
+  if (remainder < 0.12) {
+    return "";
+  } else if (remainder < 0.29) {
     return "¼";
-  } else if (remainder === 0.68) {
+  } else if (remainder < 0.42) {
+    return "⅓";
+  } else if (remainder < 0.59) {
+    return "½";
+  } else if (remainder < 0.7) {
     return "⅔";
-  } else if (remainder === 0.72) {
+  } else if (remainder < 0.86) {
     return "¾";
   } else {
-    return "";
+    return "1";
   }
 };
